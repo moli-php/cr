@@ -36,6 +36,10 @@ body {
     padding : 20px 10px;
 }
 
+#full-content #ingredient-text {
+     white-space: pre-wrap;
+}
+
 #form-content {
     height : 700px;
     border : 1px solid #ccc;
