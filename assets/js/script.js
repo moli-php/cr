@@ -51,7 +51,7 @@ app.controller('RecipeController', ['CONFIG', 'recipeApi', '$scope', function(CO
     }
 
     // delete recipe
-    $scope.deleteRecipe = function(id) {
+    $scope.deleteRecipe = function(id, category_id) {
 
         var r = confirm("Are you sure you want to delete this recipe?");
         if(r){
@@ -68,6 +68,8 @@ app.controller('RecipeController', ['CONFIG', 'recipeApi', '$scope', function(CO
                 // if home page, the first 3 latest recipies, reload data
                 if($('body').data('id') == 'Home') {
                     $scope.viewLatest();
+                }else {
+                    $scope.viewRecipies(category_id);
                 }
 
             })
@@ -93,8 +95,8 @@ app.controller('RecipeController', ['CONFIG', 'recipeApi', '$scope', function(CO
     }
 
     // appetizer, soup, main dish, dessert page
-    $scope.viewRecipies = function(id) {
-         recipeApi.query({method:'recipies', id : id}, function(data){
+    $scope.viewRecipies = function(category_id) {
+         recipeApi.query({method:'recipies', id : category_id}, function(data){
             $scope.recipies = data;
         });
     }
