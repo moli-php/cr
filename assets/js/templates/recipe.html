@@ -1,0 +1,17 @@
+<div class="panel-body" id="panel_{{recipe.id}}">
+    <div class="col-md-4 left image-container">
+        <img ng-src="{{recipe.image}}" />
+    </div>
+    <div class="col-md-8 row right">
+        <div class="pull-right action-btn">
+            <a href="{{base_url}}action/edit/{{(recipe.category_name.split(' ').join('_')).toLowerCase()}}/{{recipe.id}}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a href="javascript:void(0)" ng-click="deleteRecipe(recipe.id)"><span class="glyphicon glyphicon-trash"></span></a>
+        </div>
+        <div id="title">{{recipe.name}}</div>
+        <div id="category">{{recipe.category_name}}</div>
+        <div id="ingredient">Ingredients</div>
+        <p id="ingredient-text">{{recipe.ingredients | myTextLimit}}</p>
+        <div id="read-more"><a href="{{base_url}}recipe/details/{{recipe.id}}">Read More</a></div>
+    </div>
+</div>
+
