@@ -65,10 +65,11 @@ app.controller('RecipeController', ['CONFIG', 'recipeApi', '$scope', function(CO
                     $scope.viewFeature();
                 }
 
-                // if home page, the first 3 latest recipies, reload data
+                // reload home page data
                 if($('body').data('id') == 'Home') {
                     $scope.viewLatest();
                 }else {
+                // reload other page data
                     $scope.viewRecipies(category_id);
                 }
 
